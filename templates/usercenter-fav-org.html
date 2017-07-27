@@ -1,0 +1,72 @@
+{% extends 'usercenter-base.html' %}
+{% load staticfiles %}
+{% block title %}My favorite organization{% endblock %}
+{% block custom_bread %}
+    <section>
+        <div class="wp">
+            <ul  class="crumbs">
+                <li><a href="{% url 'index' %}">Home</a>></li>
+                <li><a href="/user/home/">Personal Center</a>></li>
+                <li>My favorite organization</li>
+            </ul>
+        </div>
+    </section>
+{% endblock %}
+
+{% block left_content %}
+	<div class="left">
+        <ul>
+            <li ><a href="{% url 'users:user_info' %}">My Info</a></li>
+            <li ><a href="{% url 'users:mycourse' %}">My Courses</a></li>
+            <li class="active2"><a href="{% url 'users:myfav_org' %}">My Favourite</a></li>
+            <li >
+                <a href="{% url 'users:mymessage' %}" style="position: relative;">
+                    My Messages
+                </a>
+            </li>
+        </ul>
+	</div>
+    {% endblock %}
+
+{% block right_content %}
+    <div class="right" >
+            <div class="personal_des Releasecont">
+                <div class="head">
+                    <h1>My Favourite</h1>
+                </div>
+
+            </div>
+            <div class="personal_des permessage">
+                <div class="head">
+                    <ul class="tab_header messagehead">
+                        <li class="active"><a href="{% url 'users:myfav_org' %}">Organizations</a> </li>
+                        <li><a href="{% url 'users:myfav_teacher' %}">Teachers </a></li>
+                        <li><a href="{% url 'users:myfav_course' %}">Courses</a></li>
+                    </ul>
+                </div>
+                <div class="messagelist">
+                    {% for org in org_list %}
+                    <div class="messages butler_list company company-fav-box">
+                        <dl class="des fr">
+                            <dt>
+                                <a href="{% url 'org:org_home' org.id %}">
+                                    <img width="160" height="90" src="{{ MEDIA_URL }}{{ org.image }}"/>
+                                </a>
+                            </dt>
+                            <dd>
+                                <h1><a href="{% url 'org:org_home' org.id %}">{{ org.name }}</a></h1>
+
+                                <span class="c8 clear">{{ org.address }}</span>
+                                <div class="delete jsDeleteFav_org" data-favid="{{ org.id }}"></div>
+                            </dd>
+                        </dl>
+                    </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </div>
+{% endblock %}
+
+

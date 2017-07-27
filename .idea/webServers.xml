@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="bffece5d-6f7f-4b84-b59a-93f73534bbbb" name="sftp" url="http://13.58.8.245">
+        <fileTransfer host="13.58.8.245" port="22" privateKey="$USER_HOME$/Downloads/samuel.pem" rootFolder="/home/ubuntu" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
